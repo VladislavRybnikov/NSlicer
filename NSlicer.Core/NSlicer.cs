@@ -29,18 +29,23 @@ namespace NSlicer.Core
                 .GetOrAdd((typeof(TFirst), typeof(TSecond)).ToTuple(),
                 (IMapper<object, object>)new Mapper<TFirst, TSecond>());
 
+        #region Clean Up
+
         public static void ClearMappers()
         {
-
+            _createdMappers.Clear();
         }
         public static void ClearSlicers()
         {
-
+            _createdSlicers.Clear();
         }
 
         public static void Clear()
         {
+            ClearMappers();
+            ClearSlicers();
+        } 
 
-        }
+        #endregion
     }
 }
