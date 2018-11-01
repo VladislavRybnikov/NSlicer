@@ -1,11 +1,24 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace NSlicer.Core.Mappers
 {
     internal class Mapper<TFirst, TSecond> : IMapper<TFirst, TSecond>
     {
+        private readonly PropertyInfo[] _findedProperties;
+        private readonly ConcurrentDictionary<PropertyInfo, PropertyInfo> _bindedProperties;
+
+        private readonly Type _firstType;
+        private readonly Type _secondType;
+
+        public Mapper()
+        {
+            _bindedProperties = new ConcurrentDictionary<PropertyInfo, PropertyInfo>();
+        }
+
         public IMapper<TFirst, TSecond> AddPropertyBinding
             (string fromPropertyName, string toPropertyName)
         {
@@ -34,7 +47,8 @@ namespace NSlicer.Core.Mappers
 
         public IMapper<TFirst, TSecond> ResetPropertyBindings()
         {
-            throw new NotImplementedException();
+            _bindedProperties.Clear();
+            return this;
         }
     }
 }

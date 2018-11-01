@@ -21,7 +21,7 @@ namespace NSlicer.Core.Slicers
             throw new NotImplementedException();
         }
 
-        public object[] Slice(TComposite data, Type[] sliceTypes)
+        public object[] Slice(TComposite data)
         {
             throw new NotImplementedException();
         }
@@ -42,6 +42,11 @@ namespace NSlicer.Core.Slicers
         }
 
         public void Slice(TComposite data, out object[] slices)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object[] Slice(TComposite data, Type[] sliceTypes)
         {
             throw new NotImplementedException();
         }

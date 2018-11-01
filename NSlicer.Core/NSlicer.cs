@@ -13,7 +13,7 @@ namespace NSlicer.Core
             <Tuple<Type, Type>, IMapper<object, object>> _createdMappers;
         private static readonly ConcurrentDictionary
             <Type, ISlicer<object>> _createdSlicers;
-
+        
         static NSlicer()
         {
             _createdMappers = new ConcurrentDictionary<Tuple<Type, Type>, IMapper<object, object>>();
