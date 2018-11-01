@@ -11,5 +11,10 @@ namespace NSlicer.Core.Mappers
 
         IEnumerable<TFirst> Map(IEnumerable<TSecond> from);
         IEnumerable<TSecond> Map(IEnumerable<TFirst> from);
+
+        IMapper<TFirst, TSecond> AddPropertyBinding
+            (string fromPropertyName, string toPropertyName);
+
+        IMapper<TFirst, TSecond> ResetPropertyBindings();
     }
 }

@@ -20,7 +20,11 @@ namespace NSlicer.Core
             _createdSlicers = new ConcurrentDictionary<Type, ISlicer<object>>();
         }
 
-        public static void Initialize()
+        public static void ClearMappers()
+        {
+
+        }
+        public static void ClearSlicers()
         {
 
         }
