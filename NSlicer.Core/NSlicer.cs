@@ -20,6 +20,15 @@ namespace NSlicer.Core
             _createdSlicers = new ConcurrentDictionary<Type, ISlicer<object>>();
         }
 
+        public static ISlicer<TComposite> SlicerFor<TComposite>() 
+            => (ISlicer<TComposite>)_createdSlicers.GetOrAdd(typeof(TComposite),
+                (ISlicer<object>)new Slicer<TComposite>());
+
+        public static IMapper<TFirst, TSecond> MapperFor<TFirst, TSecond>() 
+            => (IMapper<TFirst, TSecond>)_createdMappers
+                .GetOrAdd((typeof(TFirst), typeof(TSecond)).ToTuple(),
+                (IMapper<object, object>)new Mapper<TFirst, TSecond>());
+
         public static void ClearMappers()
         {
 
@@ -33,16 +42,5 @@ namespace NSlicer.Core
         {
 
         }
-
-        public static ISlicer<TComposite> SlicerFor<TComposite>()
-        {
-            throw new Exception();
-        }
-
-        public static IMapper<TFirst, TSecond> MapperFor<TFirst, TSecond>()
-        {
-            throw new Exception();
-        }
-
     }
 }
