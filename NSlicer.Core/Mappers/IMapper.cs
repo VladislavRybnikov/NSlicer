@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NSlicer.Core.Mappers
 {
-    public interface IMapper<TFirst, TSecond>
+    public interface IMapper<TFirst, TSecond> where TFirst : class where TSecond : class
     {
         TFirst Map(TSecond from);
         TSecond Map(TFirst from);
