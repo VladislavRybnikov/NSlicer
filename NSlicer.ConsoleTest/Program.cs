@@ -11,14 +11,16 @@ namespace NSlicer.ConsoleTest
     {
         class A
         {
-            public int SomeInt { get; set; }
+            public string SomeInt { get; set; }
             public string SomeString { get; set; }
+            public string SomeString12 { get; set; }
         }
 
         class B
         {
             public int SomeInt { get; set; }
             public string SomeString { get; set; }
+            public string SomeString14 { get; set; }
         }
 
         class C
@@ -29,9 +31,11 @@ namespace NSlicer.ConsoleTest
 
         static void Main(string[] args)
         {
-            var a = new A { SomeInt = 123, SomeString = "Hello World" };
+            var a = new A { SomeInt = "123sdf", SomeString = "Hello World" };
 
-            var mapper = NSliceFactory.MapperFor<A, B>();
+            var mapper = NSliceFactory.MapperFor<A, B>()
+                .AddPropertyBinding("jashdk", "aksjd")
+                .AddPropertyBinding("", "");
 
             var b = mapper.Map(a);
             Console.WriteLine("< NSlicer >\n");

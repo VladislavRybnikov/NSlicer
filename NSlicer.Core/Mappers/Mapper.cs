@@ -32,7 +32,9 @@ namespace NSlicer.Core.Mappers
         public IMapper<TFirst, TSecond> AddPropertyBinding
             (string fromPropertyName, string toPropertyName)
         {
-            throw new NotImplementedException();
+
+
+            return this;
         }
 
         public TFirst Map(TSecond from) 
