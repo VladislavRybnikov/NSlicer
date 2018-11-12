@@ -14,6 +14,11 @@ namespace NSlicer.Core.Mappers
 
         IMapper<TFirst, TSecond> AddPropertyBinding
             (string fromPropertyName, string toPropertyName);
+        IMapper<TFirst, TSecond> AddPropertyBinding
+
+            (Func<TFirst, object> from, Func<TSecond, object> to);
+        IMapper<TFirst, TSecond> AddPropertyBinding
+            (Func<TSecond, object> from, Func<TFirst, object> to);
 
         IMapper<TFirst, TSecond> ResetPropertyBindings();
     }
